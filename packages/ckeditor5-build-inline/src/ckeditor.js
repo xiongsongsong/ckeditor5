@@ -6,6 +6,7 @@
 // The editor creator to use.
 import InlineEditorBase from '@ckeditor/ckeditor5-editor-inline/src/inlineeditor';
 
+import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat.js';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote.js';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold.js';
@@ -62,6 +63,7 @@ export default class InlineEditor extends InlineEditorBase {}
 // Plugins to include in the build.
 InlineEditor.builtinPlugins = [
 	Autoformat,
+	Alignment,
 	BlockQuote,
 	Bold,
 	Code,
@@ -125,6 +127,7 @@ InlineEditor.defaultConfig = {
 	toolbar: {
 		items: [
 			'heading',
+			'alignment',
 			'|',
 			'bold',
 			'italic',
