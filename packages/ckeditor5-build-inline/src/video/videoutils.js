@@ -24,7 +24,10 @@ export default class VideoUtils extends Plugin {
 		const model = editor.model;
 		const selection = model.document.selection;
 
-		videoType = determineVideoTypeForInsertion( editor, selectable || selection, videoType );
+		// videoType = determineVideoTypeForInsertion( editor, selectable || selection, videoType );
+
+		// cms: 强制使用行内样式
+		videoType = 'videoInline';
 
 		attributes = {
 			...Object.fromEntries( selection.getAttributes() ),

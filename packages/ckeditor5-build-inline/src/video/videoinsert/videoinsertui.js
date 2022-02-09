@@ -85,9 +85,9 @@ export default class VideoInsertUI extends Plugin {
 			if ( videoUtils.isVideo( selectedElement ) ) {
 				editor.model.change( writer => {
 					writer.setAttribute( 'src', videoInsertView.videoURLInputValue, selectedElement );
-					// chofn: 默认显示播放控制条
+					// cms: 默认显示播放控制条
 					writer.setAttribute( 'controls', videoInsertView.videoURLInputValue, selectedElement );
-					// chofn: 插入时默认指定50%宽度
+					// cms: 插入时默认指定50%宽度
 					writer.setAttribute( 'width', '70%', selectedElement );
 					writer.removeAttribute( 'sizes', selectedElement );
 				} );
