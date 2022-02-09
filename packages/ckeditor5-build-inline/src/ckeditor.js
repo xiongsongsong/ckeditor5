@@ -116,14 +116,6 @@ InlineEditor.builtinPlugins = [
 
 // Editor configuration.
 InlineEditor.defaultConfig = {
-	extraPlugins: [
-		VideoToolbar,
-		Video,
-		VideoUpload,
-		VideoResize,
-		VideoStyle,
-		VideoInsert
-	],
 	toolbar: {
 		items: [
 			'heading',
@@ -175,28 +167,51 @@ InlineEditor.defaultConfig = {
 			{
 				name: 'videoResize:original',
 				value: '100%',
-				label: 'Original',
-				icon: 'original'
+				label: 'Original'
+			},
+			{
+				name: 'videoResize:20%',
+				value: '20%',
+				label: '20%'
+			},
+			{
+				name: 'videoResize:30%',
+				value: '30%',
+				label: '30%'
+			},
+			{
+				name: 'videoResize:40%',
+				value: '40%',
+				label: '40%'
 			},
 			{
 				name: 'videoResize:50%',
 				value: '50%',
-				label: '50%',
-				icon: 'small'
+				label: '50%'
 			},
 			{
-				name: 'videoResize:75%',
-				value: '75%',
-				label: '75%',
-				icon: 'medium'
+				name: 'videoResize:60%',
+				value: '60%',
+				label: '60%'
+			},
+			{
+				name: 'videoResize:70%',
+				value: '70%',
+				label: '70%'
+			},
+			{
+				name: 'videoResize:80%',
+				value: '80%',
+				label: '80%'
+			},
+			{
+				name: 'videoResize:90%',
+				value: '90%',
+				label: '90%'
 			}
 		],
 		toolbar: [
-			'videoResize',
-			'|',
-			'videoResize:50%',
-			'videoResize:75%',
-			'videoResize:original'
+			'videoResize'
 		]
 	},
 	table: {

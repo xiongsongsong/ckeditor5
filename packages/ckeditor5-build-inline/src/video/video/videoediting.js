@@ -18,27 +18,26 @@ export default class VideoEditing extends Plugin {
 
 		editor.editing.view.addObserver( VideoLoadObserver );
 
-		conversion.for( 'upcast' )
-			.attributeToAttribute( {
-				view: {
-					name: 'video',
-					key: 'src'
-				},
-				model: {
-					key: 'src',
-					value: viewVideo => {
-						const value = {
-							data: viewVideo.getAttribute( 'src' )
-						};
+		conversion.for( 'upcast' ).attributeToAttribute( {
+			view: {
+				name: 'video',
+				key: 'src'
+			},
+			model: {
+				key: 'src',
+				value: viewVideo => {
+					const value = {
+						data: viewVideo.getAttribute( 'src' )
+					};
 
-						if ( viewVideo.hasAttribute( 'width' ) ) {
-							value.width = viewVideo.getAttribute( 'width' );
-						}
-
-						return value;
+					if ( viewVideo.hasAttribute( 'width' ) ) {
+						value.width = viewVideo.getAttribute( 'width' );
 					}
+
+					return value;
 				}
-			} );
+			}
+		} );
 
 		const insertVideoCommand = new InsertVideoCommand( editor );
 		editor.commands.add( 'insertVideo', insertVideoCommand );

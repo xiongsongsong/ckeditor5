@@ -184,5 +184,6 @@ function _displayLocalVideo( videoUtils, viewFigure, writer, loader ) {
 		const viewVideo = videoUtils.findViewVideoElement( viewFigure );
 
 		writer.setAttribute( 'src', loader.data, viewVideo );
+		writer.setAttribute( 'controls', true, viewVideo );
 	}
 }

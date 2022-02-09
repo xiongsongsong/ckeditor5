@@ -45,5 +45,6 @@ export function downcastVideoAttribute( videoUtils, videoType, attributeKey ) {
 		const video = videoUtils.findViewVideoElement( element );
 
 		viewWriter.setAttribute( data.attributeKey, data.attributeNewValue || '', video );
+		viewWriter.setAttribute( 'controls', 'controls', video );
 	}
 }

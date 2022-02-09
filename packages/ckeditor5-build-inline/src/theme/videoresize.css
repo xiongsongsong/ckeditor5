@@ -1,3 +1,6 @@
+.video_resized video{
+    width: 100%;
+}
 .ck-content .video.video_resized {
     max-width: 100%;
     /*

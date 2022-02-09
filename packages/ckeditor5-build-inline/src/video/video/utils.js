@@ -3,9 +3,14 @@ import { first } from 'ckeditor5/src/utils';
 export function createVideoViewElement( writer, videoType ) {
 	const emptyElement = writer.createEmptyElement( 'video' );
 
-	const container = videoType === 'videoBlock' ?
-		writer.createContainerElement( 'figure', { class: 'video' } ) :
-		writer.createContainerElement( 'span', { class: 'video-inline' }, { isAllowedInsideAttributeElement: true } );
+	const container =
+		videoType === 'videoBlock' ?
+			writer.createContainerElement( 'figure', { class: 'video' } ) :
+			writer.createContainerElement(
+				'span',
+				{ class: 'video-inline', style: 'display:inline-block;' },
+				{ isAllowedInsideAttributeElement: true }
+			);
 
 	writer.insert( writer.createPositionAt( container, 0 ), emptyElement );
 
@@ -13,7 +18,10 @@ export function createVideoViewElement( writer, videoType ) {
 }
 
 export function getVideoViewElementMatcher( editor, matchVideoType ) {
-	if ( editor.plugins.has( 'VideoInlineEditing' ) !== editor.plugins.has( 'VideoBlockEditing' ) ) {
+	if (
+		editor.plugins.has( 'VideoInlineEditing' ) !==
+		editor.plugins.has( 'VideoBlockEditing' )
+	) {
 		return {
 			name: 'video',
 			attributes: {
@@ -25,11 +33,16 @@ export function getVideoViewElementMatcher( editor, matchVideoType ) {
 	const videoUtils = editor.plugins.get( 'VideoUtils' );
 
 	return element => {
-		if ( !videoUtils.isInlineVideoView( element ) || !element.hasAttribute( 'src' ) ) {
+		if (
+			!videoUtils.isInlineVideoView( element ) ||
+			!element.hasAttribute( 'src' )
+		) {
 			return null;
 		}
 
-		const videoType = element.findAncestor( videoUtils.isBlockVideoView ) ? 'videoBlock' : 'videoInline';
+		const videoType = element.findAncestor( videoUtils.isBlockVideoView ) ?
+			'videoBlock' :
+			'videoInline';
 
 		if ( videoType !== matchVideoType ) {
 			return null;
