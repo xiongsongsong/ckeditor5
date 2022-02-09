@@ -166,33 +166,33 @@ InlineEditor.defaultConfig = {
 		toolbar: [ 'toggleImageCaption', 'imageTextAlternative' ]
 	},
 	video: {
-		resizeUnit: 'px',
+		resizeUnit: '',
 		// Configure the available video resize options.
 		resizeOptions: [
 			{
 				name: 'videoResize:original',
-				value: null,
+				value: '100%',
 				label: 'Original',
 				icon: 'original'
 			},
 			{
-				name: 'videoResize:50',
-				value: 50,
-				label: '50',
-				icon: 'medium'
+				name: 'videoResize:50%',
+				value: '50%',
+				label: '50%',
+				icon: 'small'
 			},
 			{
-				name: 'videoResize:75',
-				value: '75',
-				label: '75',
-				icon: 'large'
+				name: 'videoResize:75%',
+				value: '75%',
+				label: '75%',
+				icon: 'medium'
 			}
 		],
 		toolbar: [
 			'videoResize',
 			'|',
-			'videoResize:50',
-			'videoResize:75',
+			'videoResize:50%',
+			'videoResize:75%',
 			'videoResize:original'
 		]
 	},
