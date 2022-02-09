@@ -88,7 +88,7 @@ export default class VideoInsertUI extends Plugin {
 					// chofn: 默认显示播放控制条
 					writer.setAttribute( 'controls', videoInsertView.videoURLInputValue, selectedElement );
 					// chofn: 插入时默认指定50%宽度
-					writer.setAttribute( 'width', '50%', selectedElement );
+					writer.setAttribute( 'width', '70%', selectedElement );
 					writer.removeAttribute( 'sizes', selectedElement );
 				} );
 			} else {
