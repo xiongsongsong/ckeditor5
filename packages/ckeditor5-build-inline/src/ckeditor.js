@@ -30,7 +30,12 @@ import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
 import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices';
-
+import VideoUpload from './video/videoupload';
+import Video from './video/video';
+import VideoResize from './video/videoresize';
+import VideoToolbar from './video/videotoolbar';
+import VideoStyle from './video/videostyle';
+import VideoInsert from './video/videoinsert';
 export default class InlineEditor extends InlineEditorBase {}
 
 // Plugins to include in the build.
@@ -58,16 +63,30 @@ InlineEditor.builtinPlugins = [
 	PasteFromOffice,
 	Table,
 	TableToolbar,
-	TextTransformation
+	TextTransformation,
+	VideoUpload,
+	Video,
+	VideoResize,
+	VideoToolbar,
+	VideoStyle,
+	VideoInsert
 ];
 
 // Editor configuration.
 InlineEditor.defaultConfig = {
+	extraPlugins: [
+		VideoToolbar,
+		Video,
+		VideoUpload,
+		VideoResize,
+		VideoStyle,
+		VideoInsert
+	],
 	toolbar: {
 		items: [
-			'heading',
 			'|',
 			'bold',
+			'heading',
 			'italic',
 			'link',
 			'bulletedList',
@@ -81,7 +100,9 @@ InlineEditor.defaultConfig = {
 			'insertTable',
 			'mediaEmbed',
 			'undo',
-			'redo'
+			'redo',
+			'videoUpload',
+			'videoInsert'
 		]
 	},
 	image: {
@@ -94,12 +115,39 @@ InlineEditor.defaultConfig = {
 			'imageTextAlternative'
 		]
 	},
-	table: {
-		contentToolbar: [
-			'tableColumn',
-			'tableRow',
-			'mergeTableCells'
+	video: {
+		resizeUnit: 'px',
+		// Configure the available video resize options.
+		resizeOptions: [
+			{
+				name: 'videoResize:original',
+				value: null,
+				label: 'Original',
+				icon: 'original'
+			},
+			{
+				name: 'videoResize:50',
+				value: 50,
+				label: '50',
+				icon: 'medium'
+			},
+			{
+				name: 'videoResize:75',
+				value: '75',
+				label: '75',
+				icon: 'large'
+			}
+		],
+		toolbar: [
+			'videoResize',
+			'|',
+			'videoResize:50',
+			'videoResize:75',
+			'videoResize:original'
 		]
+	},
+	table: {
+		contentToolbar: [ 'tableColumn', 'tableRow', 'mergeTableCells' ]
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: 'en'
